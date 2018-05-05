@@ -1,6 +1,3 @@
-
-import jdk.nashorn.internal.runtime.Specialization;
-
 import java.util.ArrayList;
 import java.util.*;
 
@@ -83,8 +80,16 @@ public class Doctor {
         }
     }
 
+    public void SetDrug(Drug drug){
+        Drug.add(drug);
+    }
 
+    public void SetDrugs(ArrayList<Drug> Drugs){
+        Drug.addAll(Drugs);
+    }
 
-
+    public ArrayList<Drug> GetDrugs(){
+        return Drug;
+    }
 }
 
