@@ -66,7 +66,14 @@ public class Doctor {
         return Appointments;
     }
 
-   
+    public boolean SearchAppointment(Date searchedDate){
+        for (Date item:Disponibility.keySet()){
+            if(item == searchedDate ){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void ShowDoctor(){
         System.out.println(this.name);
