@@ -40,12 +40,18 @@ public class Doctor {
         return Specialization;
     }
 
-    public void SetAppointment (Date date){
-        this.date=date;
-    }
-
-    public Date GetAppointment(){
-        return date;
+    public void SetAppointment (Date date, Patient patient){
+        Appointment appointment = new Appointment(patient, this, date);
+        ArrayList<Appointment> appointments;
+        if(CheckAppointment(date)){
+            appointments = Disponibility.get(date);
+            appointments.add(appointment);
+        }
+        else{
+            appointments = new ArrayList<>();
+            appointments.add(appointment);
+        }
+        Disponibility.put(date, appointments);
     }
 
     public void SetLocation(String location){
@@ -68,7 +74,7 @@ public class Doctor {
         Drug.add(drug);
     }
     
-    public ArrayList<Appointment> CheckAppointment(Date startDate,Date endDate){
+    public ArrayList<Appointment> SearchAppointment(Date startDate,Date endDate){
         ArrayList<Appointment> Appointments = new ArrayList<Appointment>();
         for(Date item:Disponibility.keySet()){
             if(item.after(startDate) && item.before(endDate)){
@@ -80,7 +86,7 @@ public class Doctor {
         return Appointments;
     }
 
-    public boolean SearchAppointment(Date searchedDate){
+    public boolean CheckAppointment(Date searchedDate){
         for (Date item:Disponibility.keySet()){
             if(item == searchedDate ){
                 return true;
