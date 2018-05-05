@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import jdk.nashorn.internal.runtime.Specialization;
 
 import java.util.ArrayList;
@@ -31,4 +32,7 @@ public class Doctor {
     public void setSpecialization(ArrayList<SpecializationEnum> Specialization){
         this.Specialization=Specialization;
     }
+=======
+public class Doctor {
+>>>>>>> 23c1f47d859e0bdf9af941dff39f2d646f6684eb
 }
