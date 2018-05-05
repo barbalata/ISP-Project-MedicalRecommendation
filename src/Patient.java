@@ -97,8 +97,11 @@ public class Patient {
         return doctor.SearchDrug(affections, this.Allergens, this.Age);
     }
 
-    public boolean SetAppoiment(Date date, Doctor doctor){
-        return doctor.CheckAppointment(date, date);
-
+    public boolean SetAppointment(Date date, Doctor doctor){
+        if(!doctor.CheckAppointment(date)){
+            doctor.SetAppointment(date, this);
+            return true;
+        }
+        return false;
     }
 }
