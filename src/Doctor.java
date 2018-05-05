@@ -7,16 +7,21 @@ import java.util.*;
 public class Doctor {
 
     String name;
-    public ArrayList<SpecializationEnum> Specialization;
+    ArrayList<SpecializationEnum> Specialization;
     Map<Date, ArrayList<Appointment>> Disponibility;
     String location;
     Date date;
-    public ArrayList<Drug> Drug;
+    ArrayList<Drug> Drug;
 
     public Doctor(String name, ArrayList<SpecializationEnum> Specialization, String location) {
         this.name = name;
-        this.Specialization = Specialization;
+        this.Specialization = new ArrayList<SpecializationEnum>(Specialization) ;
         this.location = location;
+        Drug = new ArrayList<Drug>();
+    }
+    public Doctor(){
+        Specialization = new ArrayList<SpecializationEnum>();
+        Drug = new ArrayList<Drug>();
     }
 
     public void SetName(String name) {

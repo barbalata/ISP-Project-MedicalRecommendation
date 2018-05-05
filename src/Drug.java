@@ -60,7 +60,7 @@ public class Drug {
 
     public void AddAllergens(ArrayList<AllergenEnum> allergens){
         Allergens.addAll(allergens);
-        
+
     }
 
     public void AddIndication(AffectionEnum indication){
