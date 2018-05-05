@@ -1,6 +1,3 @@
-
-import jdk.nashorn.internal.runtime.Specialization;
-
 import java.util.ArrayList;
 import java.util.*;
 
@@ -10,16 +7,21 @@ import java.util.*;
 public class Doctor {
 
     String name;
-    public ArrayList<SpecializationEnum> Specialization;
+    ArrayList<SpecializationEnum> Specialization;
     Map<Date, ArrayList<Appointment>> Disponibility;
     String location;
     Date date;
-    public ArrayList<Drug> Drug;
+    ArrayList<Drug> Drug;
 
     public Doctor(String name, ArrayList<SpecializationEnum> Specialization, String location) {
         this.name = name;
-        this.Specialization = Specialization;
+        this.Specialization = new ArrayList<SpecializationEnum>(Specialization) ;
         this.location = location;
+        Drug = new ArrayList<Drug>();
+    }
+    public Doctor(){
+        Specialization = new ArrayList<SpecializationEnum>();
+        Drug = new ArrayList<Drug>();
     }
 
     public void SetName(String name) {
@@ -54,6 +56,18 @@ public class Doctor {
         return location;
     }
 
+    public void SetDrugs(ArrayList<Drug> Drugs){
+        Drug.addAll(Drugs);
+    }
+
+    public ArrayList<Drug> GetDrugs(){
+        return Drug;
+    }
+
+    public void SetDrug(Drug drug){
+        Drug.add(drug);
+    }
+    
     public ArrayList<Appointment> CheckAppointment(Date startDate,Date endDate){
         ArrayList<Appointment> Appointments = new ArrayList<Appointment>();
         for(Date item:Disponibility.keySet()){
@@ -66,6 +80,14 @@ public class Doctor {
         return Appointments;
     }
 
+    public boolean SearchAppointment(Date searchedDate){
+        for (Date item:Disponibility.keySet()){
+            if(item == searchedDate ){
+                return true;
+            }
+        }
+        return false;
+    }
     public void ShowDoctor(){
         System.out.println("The information about doctor:");
         System.out.println("\tName: " + this.name + ";");
@@ -106,6 +128,5 @@ public class Doctor {
 
         return drugs;
     }
-
 }
 
