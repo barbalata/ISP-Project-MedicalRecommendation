@@ -6,9 +6,16 @@ public class Drug {
     private float price;
     private int maxAge;
     private ArrayList<AffectionEnum> Indication;
+    private ArrayList<AllergenEnum> Allergens;
 
     public Drug(){
         Indication = new ArrayList<AffectionEnum>();
+        Allergens = new ArrayList<AllergenEnum>();
+    }
+
+    public Drug(String name){
+        this();
+        this.Name = name;
     }
 
     public String getName(){
@@ -41,5 +48,29 @@ public class Drug {
 
     public void setMaxAge(int maxAge){
         this.maxAge = maxAge;
+    }
+
+    public void ShowDrug(){
+        System.out.println(this.getName());
+    }
+
+    public void AddAllergen(AllergenEnum allergen){
+        Allergens.add(allergen);
+    }
+
+    public void AddAllergens(ArrayList<AllergenEnum> allergens){
+        for(AllergenEnum item : allergens){
+            Allergens.add(item);
+        }
+    }
+
+    public void AddIndication(AffectionEnum indication){
+        Indication.add(indication);
+    }
+
+    public void AddIndications(ArrayList<AffectionEnum> indications){
+        for(AffectionEnum item : indications){
+            Indication.add(item);
+        }
     }
 }
