@@ -66,18 +66,46 @@ public class Doctor {
         return Appointments;
     }
 
-   
-
     public void ShowDoctor(){
-        System.out.println(this.name);
-        System.out.println(this.location);
+        System.out.println("The information about doctor:");
+        System.out.println("\tName: " + this.name + ";");
+        System.out.println("\tLocation: " + this.location + ";");
+        System.out.print("\tSpecializations: ");
         for(SpecializationEnum specialization:Specialization){
-            System.out.println(specialization.toString());
+            System.out.print(specialization + "; ");
         }
+        System.out.println();
     }
 
+    public ArrayList<Drug> SearchDrug(ArrayList<AffectionEnum> affections, ArrayList<AllergenEnum> allergens, int age){
+        ArrayList<Drug> drugs = new ArrayList<>();
+        boolean containAllergen = false;
+        boolean containAffection = false;
 
+        for (Drug drug : this.Drug){
+            for(AllergenEnum allergen : allergens){
+                if(drug.GetAllergens().contains(allergen) && containAllergen == false){
+                    containAllergen = true;
+                }
+            }
 
+            if(containAllergen == false){
+                for(AffectionEnum affection : affections){
+                    if (drug.GetIndications().contains(affection)){
+                        containAffection = true;
+                    }
+                }
+            }
+
+            if(containAffection == true){
+                if(drug.getMaxAge() > age && drug.getMinAge() < age){
+                    drugs.add(drug);
+                }
+            }
+        }
+
+        return drugs;
+    }
 
 }
 
