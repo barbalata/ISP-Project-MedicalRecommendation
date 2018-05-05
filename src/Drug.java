@@ -73,4 +73,12 @@ public class Drug {
             Indication.add(item);
         }
     }
+
+    public ArrayList<AffectionEnum> GetIndications(){
+        return this.Indication;
+    }
+
+    public ArrayList<AllergenEnum> GetAllergens(){
+        return this.Allergens;
+    }
 }
