@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Patient {
     private String Name;
@@ -89,14 +90,15 @@ public class Patient {
     }
 
     public ArrayList<Drug> SearchDrug(Doctor doctor){
-        ArrayList<Drug> drugs = new ArrayList<>();
-        return drugs;
+        return doctor.SearchDrug(this.Affections, this.Allergens, this.Age);
     }
 
     public ArrayList<Drug> SearchDrug(Doctor doctor, ArrayList<AffectionEnum> affections){
-        ArrayList<Drug> drugs = new ArrayList<>();
-
-        return drugs;
+        return doctor.SearchDrug(affections, this.Allergens, this.Age);
     }
 
+    public boolean SetAppoiment(Date date, Doctor doctor){
+        return doctor.CheckAppointment(date, date);
+
+    }
 }
