@@ -59,8 +59,7 @@ public class Drug {
     }
 
     public void AddAllergens(ArrayList<AllergenEnum> allergens){
-        for(AllergenEnum item : allergens){
-            Allergens.add(item);
+        Allergens.addAll(allergens);
         }
     }
 
