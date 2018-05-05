@@ -14,8 +14,8 @@ public class Appointment {
     }
 
     public void ShowAppointment(){
-        System.out.println("Nume Pacient:  " + Patient.GetName()+
-                            "Nume Doctor: " + Medic.GetName() +
+        System.out.println("Nume Pacient:  " + Patient.GetName() + "\n"+
+                            "Nume Doctor: " + Medic.GetName() + "\n"+
                             "Data: " + Date.toString() + "\n");
     }
 }

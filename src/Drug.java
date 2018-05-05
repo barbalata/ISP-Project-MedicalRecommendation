@@ -51,7 +51,20 @@ public class Drug {
     }
 
     public void ShowDrug(){
-        System.out.println(this.getName());
+        System.out.println("The information about drug:");
+        System.out.println("\tName:" + this.getName() + ";");
+        System.out.println("\tMinim age: " + this.minAge + ";");
+        System.out.println("\tMaxim age: " + this.maxAge + ";");
+        System.out.print("\tIndications: ");
+        for(AffectionEnum indication : this.Indication){
+            System.out.print(indication + "; ");
+        }
+        System.out.println();
+        System.out.print("\tAllergens: ");
+        for(AllergenEnum allergen : this.Allergens){
+            System.out.print(allergen + "; ");
+        }
+        System.out.println();
     }
 
     public void AddAllergen(AllergenEnum allergen){
