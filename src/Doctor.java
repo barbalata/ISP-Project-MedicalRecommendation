@@ -10,18 +10,18 @@ public class Doctor {
     ArrayList<SpecializationEnum> Specialization;
     Map<Date, ArrayList<Appointment>> Disponibility;
     String location;
-    Date date;
     ArrayList<Drug> Drug;
 
     public Doctor(String name, ArrayList<SpecializationEnum> Specialization, String location) {
+        this();
         this.name = name;
-        this.Specialization = new ArrayList<SpecializationEnum>(Specialization) ;
+        this.Specialization.addAll(Specialization) ;
         this.location = location;
-        Drug = new ArrayList<Drug>();
     }
     public Doctor(){
-        Specialization = new ArrayList<SpecializationEnum>();
-        Drug = new ArrayList<Drug>();
+        Specialization = new ArrayList<>();
+        Drug = new ArrayList<>();
+        Disponibility = new HashMap<>();
     }
 
     public void SetName(String name) {
@@ -133,6 +133,10 @@ public class Doctor {
         }
 
         return drugs;
+    }
+
+    public ArrayList<Appointment> GetAppointments(){
+        return this.SearchAppointment(new Date(1,1,1,0,0), new Date(4000,12,31,23,59));
     }
 }
 
