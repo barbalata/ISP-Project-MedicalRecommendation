@@ -1,4 +1,4 @@
-import java.sql.Date;
+import java.util.Date;
 
 public class Appointment {
     private Patient Patient;
@@ -6,7 +6,7 @@ public class Appointment {
     private Date Date;
 
 
-    public Appointment(Patient patient, Doctor medic, Date date){
+    public Appointment(Patient patient, Doctor medic, java.util.Date date){
         this.Patient = patient;
         this.Medic = medic;
         this.Date = date;
