@@ -2,95 +2,93 @@ import java.util.*;
 
 public class Drug {
     private String Name;
-    private int minAge;
-    private float price;
-    private int maxAge;
+    private int MinAge;
+    private float Price;
+    private int MaxAge;
     private ArrayList<AffectionEnum> Indication;
     private ArrayList<AllergenEnum> Allergens;
 
-    public Drug(){
-        Indication = new ArrayList<AffectionEnum>();
-        Allergens = new ArrayList<AllergenEnum>();
+    public Drug() {
+        Indication = new ArrayList<>();
+        Allergens = new ArrayList<>();
     }
 
-    public Drug(String name){
+    public Drug(String name) {
         this();
         this.Name = name;
     }
 
-    public String getName(){
+    public String GetName() {
         return this.Name;
     }
 
-    public void setNAme(String name){
+    public void SetName(String name) {
         this.Name = name;
     }
 
-    public int getMinAge(){
-        return this.minAge;
+    public int GetMinAge() {
+        return this.MinAge;
     }
 
-    public void setMinAge(int minAge){
-        this.minAge = minAge;
+    public void SetMinAge(int minAge) {
+        this.MinAge = minAge;
     }
 
-    public float getPrice(){
-        return this.price;
+    public float GetPrice() {
+        return this.Price;
     }
 
-    public void setPrice(float price){
-        this.price = price;
+    public void SetPrice(float price) {
+        this.Price = price;
     }
 
-    public int getMaxAge(){
-        return this.maxAge;
+    public int GetMaxAge() {
+        return this.MaxAge;
     }
 
-    public void setMaxAge(int maxAge){
-        this.maxAge = maxAge;
+    public void SetMaxAge(int maxAge) {
+        this.MaxAge = maxAge;
     }
 
-    public void ShowDrug(){
+    public void ShowDrug() {
         System.out.println("The information about drug:");
-        System.out.println("\tName:" + this.getName() + ";");
-        System.out.println("\tMinim age: " + this.minAge + ";");
-        System.out.println("\tMaxim age: " + this.maxAge + ";");
+        System.out.println("\tName:" + this.GetName() + ";");
+        System.out.println("\tMinim age: " + this.MinAge + ";");
+        System.out.println("\tMaxim age: " + this.MaxAge + ";");
         System.out.print("\tIndications: ");
-        for(AffectionEnum indication : this.Indication){
+        for (AffectionEnum indication : this.Indication) {
             System.out.print(indication + "; ");
         }
         System.out.println();
         System.out.print("\tAllergens: ");
-        for(AllergenEnum allergen : this.Allergens){
+        for (AllergenEnum allergen : this.Allergens) {
             System.out.print(allergen + "; ");
         }
         System.out.println();
     }
 
-    public void AddAllergen(AllergenEnum allergen){
+    public void AddAllergen(AllergenEnum allergen) {
         Allergens.add(allergen);
     }
 
-    public void AddAllergens(ArrayList<AllergenEnum> allergens){
+    public void AddAllergens(ArrayList<AllergenEnum> allergens) {
         Allergens.addAll(allergens);
 
     }
 
-    public void AddIndication(AffectionEnum indication){
+    public void AddIndication(AffectionEnum indication) {
         Indication.add(indication);
     }
 
-    public void AddIndications(ArrayList<AffectionEnum> indications){
-        for(AffectionEnum item : indications){
-            Indication.add(item);
-        }
+    public void AddIndications(ArrayList<AffectionEnum> indications) {
+        Indication.addAll(indications);
     }
 
-    public ArrayList<AffectionEnum> GetIndications(){
+    public ArrayList<AffectionEnum> GetIndications() {
         return this.Indication;
     }
 
-    public ArrayList<AllergenEnum> GetAllergens(){
+    public ArrayList<AllergenEnum> GetAllergens() {
         return this.Allergens;
     }
 }
