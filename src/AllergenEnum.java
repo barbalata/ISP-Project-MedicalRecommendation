@@ -1,5 +1,5 @@
 public enum AllergenEnum {
-    Glluten,
+    Gluten,
     Crustacee,
     Oua,
     Peste,
