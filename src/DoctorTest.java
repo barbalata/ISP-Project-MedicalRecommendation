@@ -1,10 +1,9 @@
-import org.junit.jupiter.api.Assertions;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DoctorTest {
     //region Tests for Doctor.CheckAppointment method
