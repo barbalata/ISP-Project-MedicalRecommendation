@@ -23,9 +23,9 @@ public  class Main {
         Drug Algocalmin = new Drug("Algocalmin");
         Algocalmin.AddAllergen(AllergenEnum.DioxidDeSulf);
         Algocalmin.AddIndication(AffectionEnum.DureriDentare);
-        Algocalmin.setMaxAge(50);
-        Algocalmin.setMinAge(12);
-        Algocalmin.setPrice(30);
+        Algocalmin.SetMaxAge(50);
+        Algocalmin.SetMinAge(12);
+        Algocalmin.SetPrice(30);
 
         Algocalmin.ShowDrug();
 
@@ -41,18 +41,18 @@ public  class Main {
         specialization.add(SpecializationEnum.Cardiologie);
         specialization.add(SpecializationEnum.Dermatologie);
 
-        Doctor doctor1 = new Doctor("Mircea", specialization, "meah");
+        Doctor doctor1 = new Doctor("Mircea", specialization, LocationEnume.Bucharest);
         doctor1.ShowDoctor();
 
         Calendar calendar = setCalendar(1,1,2018);
         Date date = calendar.getTime();
 
-        patient1.SetAppointment(date, doctor1);
+        patient1.SetAppointment(date,LocationEnume.Bucharest, doctor1);
         ArrayList<Appointment> appointments = new ArrayList<>();
         appointments = doctor1.GetAppointments();
         for(Appointment appointment : appointments){
             appointment.ShowAppointment();
         }
-        
+
     }
 }
