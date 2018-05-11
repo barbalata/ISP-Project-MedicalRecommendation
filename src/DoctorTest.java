@@ -45,11 +45,12 @@ class DoctorTest {
 
         System.out.println("\n\tNot existing date in doctor's appointments and incorrect doctor's location.");
         Doctor doctor = SetDoctorTest();
-        Date date = setCalendar(4, 1, 1996,3,4,5).getTime();
+        Date date = setCalendar(4, 9, 1996,3,4,5).getTime();
 
         assertFalse(doctor.CheckAppointment(date, LocationEnume.Bucharest));
     }
     //endregion
+
     //region Private methods
 
     private Doctor SetDoctorTest() {
